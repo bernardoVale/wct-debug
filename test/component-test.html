@@ -1,102 +1,17 @@
-<!DOCTYPE html>
-
-<head lang="en">
-    <meta charset="utf-8">
-    <script type="text/javascript" src="/web-component-tester/browser.js"></script>
-    <link rel="stylesheet" href="../dist/content-modal.css" />
-    <title>&lt;content-modal&gt; Tests</title>
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="import" href="../ncona-accordion.html">
+  <script src="../node_modules/web-component-tester/browser.js"></script>
 </head>
-
 <body>
-    <test-fixture id="default">
-       <template>
-           <content-modal>
-              <p>We designed and developed our exclusive line of stainless-steel kitchen tools by drawing upon more than fifty years of culinary experience. These professional-quality utensils are crafted of heavy-gauge stainless steel and ergonomically shaped for excellent balance and control—for a difference you can really feel in the hand. We created this spoon with a very deep bowl, so it essentially functions like a ladle for scooping and serving. And with a gleaming polished finish, it's an attractive choice for serving at the table.</p>
-          </content-modal>
-       </template>
-   </test-fixture>
-
-    <test-fixture id="open">
-        <template>
-            <content-modal open>
-               <p>We designed and developed our exclusive line of stainless-steel kitchen tools by drawing upon more than fifty years of culinary experience. These professional-quality utensils are crafted of heavy-gauge stainless steel and ergonomically shaped for excellent balance and control—for a difference you can really feel in the hand. We created this spoon with a very deep bowl, so it essentially functions like a ladle for scooping and serving. And with a gleaming polished finish, it's an attractive choice for serving at the table.</p>
-           </content-modal>
-        </template>
-   </test-fixture>
-
-   <test-fixture id="custom-text">
-        <template>
-            <content-modal text-show="Show">
-              <p>We designed and developed our exclusive line of stainless-steel kitchen tools by drawing upon more than fifty years of culinary experience. These professional-quality utensils are crafted of heavy-gauge stainless steel and ergonomically shaped for excellent balance and control—for a difference you can really feel in the hand. We created this spoon with a very deep bowl, so it essentially functions like a ladle for scooping and serving. And with a gleaming polished finish, it's an attractive choice for serving at the table.</p>
-           </content-modal>
-        </template>
-    </test-fixture>
-
-    <script>
-        describe('', function() {
-            this.timeout(10000);
-            let customElement;
-            let toggleLink;
-            let content;
-            let initialOffset;
-            describe("initial state: closed", function() {
-                beforeEach(function() {
-                    customElement = fixture("default");
-                    content = customElement.querySelector("slot");
-                    toggleLink = customElement.querySelector(".modal-button");
-                });
-                it("<content-modal> exists", function() {
-                    expect(customElement).to.exist;
-                });
-                it("toggle link should show default show text", function() {
-                    expect(toggleLink.textContent).to.be.a.string(customElement.textShow);
-                });
-                it("initial visibility of modal", function() {
-                    expect(content.offsetHeight).to.be.equal(0);
-                });
-            });
-            describe("initial state: open", function() {
-                beforeEach(function() {
-                    customElement = fixture("open");
-                    toggleLink = customElement.querySelector(".modal-button");
-                    content = customElement.querySelector(".modal-content");
-                });
-                it("initial visibility visible", function() {
-                    expect(content.offsetHeight).to.be.above(0);
-                });
-            });
-            describe("custom toggle link text", function() {
-                var customElement;
-                var toggleLink;
-                var content;
-                beforeEach(function() {
-                    customElement = fixture("default");
-                    toggleLink = customElement.querySelector(".modal-button");
-                    content = customElement.querySelector("slot");
-                });
-                it("Modal toggle link should show custom show text", function() {
-                    expect(toggleLink.textContent).to.be.a.string(customElement.textShow);
-                });
-            });
-            describe("#attributeChangeCallback", function() {
-                beforeEach(function() {
-                    var customElement = fixture("custom-text");
-                    var toggleLink = customElement.querySelector(".modal-button");
-                });
-                it("changing 'text-show' should update toggle link text", function(done) {
-                    customElement = fixture("custom-text");
-                    toggleLink = customElement.querySelector(".modal-button");
-                    var newText = "New Show Text";
-                    customElement.setAttribute("text-show", newText);
-                    expect(customElement.textShow).to.be.a.string(newText);
-                    done();
-                });
-            });
-        });
-    </script>
-
-    <script type="text/javascript" src="../dist/document-register-element.bundle.js"></script>
-    <script type="text/javascript" src="../dist/content-modal.bundle.js" defer></script>
+  <script>
+    suite('<ncona-accordion>', function() {
+      test('dummy test', function() {
+        assert.isTrue(true);
+      });
+    });
+  </script>
 </body>
-
 </html>

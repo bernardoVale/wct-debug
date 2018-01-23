@@ -3,9 +3,11 @@
   "suites": ["test/component-test.html"],
   "plugins": {
     "local": {
-      "disabled": false,
+      "disabled": true
+    },
+    "headless": {
       "browsers": [
-        "chrome"
+        "chrome", "firefox"
       ],
       "browsersOptions": {
         "chrome": [
@@ -13,6 +15,9 @@
           "headless",
           "disable-gpu",
           "no-sandbox"
+        ],
+        "firefox": [
+          "--headless"
         ]
       }
     }

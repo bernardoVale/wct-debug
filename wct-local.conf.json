@@ -5,7 +5,7 @@
     "local": {
       "disabled": false,
       "browsers": [
-        "firefox"
+        "firefox", "chrome"
       ]
     }
   }

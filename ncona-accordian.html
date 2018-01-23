@@ -1,0 +1,33 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+
+<dom-module id="ncona-accordion">
+  <template><content></content></template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: 'ncona-accordion',
+    properties: {
+      nconaAllowAllClosed: Boolean
+    },
+    listeners: {
+      click: 'handleClick'
+    },
+    handleClick: function(e) {
+      if (e.target.tagName !== 'NCONA-TITLE') {
+        return;
+      }
+
+      var elementStatus = e.target.parentNode.getAttribute('ncona-selected');
+
+      var elements = this.querySelectorAll('ncona-element');
+      for (var i = 0; i < elements.length; i++) {
+      elements[i].removeAttribute('ncona-selected');
+    }
+
+    if (!this.nconaAllowAllClosed || elementStatus === null) {
+      e.target.parentNode.setAttribute('ncona-selected', 'ncona-selected');
+    }
+  }
+});
+</script>

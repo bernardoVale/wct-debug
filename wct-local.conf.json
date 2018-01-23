@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "suites": ["test/component-test.html"],
+  "plugins": {
+    "local": {
+      "disabled": false,
+      "browsers": [
+        "firefox"
+      ]
+    }
+  }
+}

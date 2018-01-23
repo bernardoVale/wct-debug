@@ -1,0 +1,108 @@
+// Import the consumer config file
+@import "components/ecom-component-config"
+
+// Content Modal common component sass
+$content-modal-button-height: 40px !default
+$content-modal-button-width: 200px !default
+$content-modal-button-font-size: 14px !default
+$content-modal-button-background-color: #000 !default
+$content-modal-button-text-color: #fff !default
+$content-modal-button-background-color-hover: #fff !default
+$content-modal-button-text-color-hover: #000 !default
+
+$content-modal-background-color: rgba(0,0,0,0.5) !default
+
+$content-modal-content-background-color: #fff !default
+$content-modal-content-position-top: 20px !default
+$content-modal-content-position-left: 20px !default
+$content-modal-content-position-right: 20px !default
+$content-modal-content-padding: 3vh 5vh !default
+
+$content-modal-close-button-height-width: 20px !default
+$content-modal-close-button-color: #000 !default
+$content-modal-close-position-top: 27px !default
+$content-modal-close-position-right: 20px !default
+
+
+content-modal.left
+    .modal-content
+        transform: translateY(0%) translateX(-100%)
+content-modal.right
+    .modal-content
+        transform: translateY(0%) translateX(100%)
+content-modal.top
+    .modal-content
+        transform: translateY(-100%) translateX(0%)
+
+content-modal[open]
+    .modal-content,
+    .modal-background
+        visibility: visible
+        opacity: 1
+        transform: translateY(0%) translateX(0%)
+
+.modal-button
+    height: $content-modal-button-height
+    line-height: $content-modal-button-height
+    width: $content-modal-button-width
+    background: $content-modal-button-background-color
+    color: $content-modal-button-text-color
+    font-size: $content-modal-button-font-size
+    cursor: pointer
+    display: inline-block
+    text-align: center
+    &:hover
+        color: $content-modal-button-text-color-hover
+        background: $content-modal-button-background-color-hover
+
+.modal-background
+    background: $content-modal-background-color
+    position: fixed
+    top: 0px
+    left: 0px
+    right: 0px
+    bottom: 0px
+    z-index: 5000
+    visibility: hidden
+    opacity: 0
+    transition: all 300ms ease-out
+
+.modal-content
+    background: $content-modal-content-background-color
+    padding: $content-modal-content-padding
+    top:  $content-modal-content-position-top
+    left:  $content-modal-content-position-left
+    right: $content-modal-content-position-right
+    bottom: auto
+    position: fixed
+    visibility: hidden
+    backface-visibility: hidden
+    transform: translateY(100%)
+    transition: all 300ms ease-in
+    animation-delay: 100ms
+    z-index: 5001
+
+.close-button
+    height: $content-modal-close-button-height-width
+    width: $content-modal-close-button-height-width
+    top: $content-modal-close-position-top
+    right: $content-modal-close-position-right
+    position: absolute
+    line-height: 20px
+    display: inline-block
+    cursor: pointer
+    &:before, &:after
+        background-color: $content-modal-close-button-color
+        width: $content-modal-close-button-height-width
+        height: 1px
+        transform: rotate(-45deg)
+        content: ''
+        position: absolute
+        margin: 0
+        display: block
+        transition: all 0.2s ease-out
+    &:after
+        transform: rotate(45deg)
+    &:hover
+        &:before, &:after
+            transform: rotate(0deg)

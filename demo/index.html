@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<head lang="en">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="document-register-element.bundle.js"></script>
+    <title>&lt;content-modal&gt; Example</title>
+    <style>
+        body {
+            font: 13px/16px 'Gotham HTF XLight', 'gotham 4r', 'gotham', helvetica, arial;
+        }
+        .divider {
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body class="web-components">
+    <p><strong>Default</strong></p>
+    <content-modal>
+        <p>We designed and developed our exclusive line of stainless-steel kitchen tools by drawing upon more than fifty years of culinary experience. These professional-quality utensils are crafted of heavy-gauge stainless steel and ergonomically shaped for excellent balance and control—for a difference you can really feel in the hand. We created this spoon with a very deep bowl, so it essentially functions like a ladle for scooping and serving. And with a gleaming polished finish, it's an attractive choice for serving at the table.</p>
+        <button class="custom-modal-button">Here is a button from the outside!</button>
+    </content-modal>
+
+    <hr class="divider" />
+    
+    <content-modal text-show="show second">
+        <p> This is the 2nd modal</p>
+        <button class="custom-modal-button">This is the second modal</button>
+    </content-modal>
+</body>
+
+</html>

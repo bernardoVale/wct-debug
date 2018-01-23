@@ -1,0 +1,15 @@
+{
+  "verbose": true,
+  "suites": ["test/component-test.html"],
+  "plugins": {
+    "local": {
+      "disabled": true
+    },
+    "headless": {
+      "disabled": false,
+      "browsers": [
+        "firefox"
+      ]
+    }
+  }
+}

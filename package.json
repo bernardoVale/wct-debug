@@ -1,0 +1,45 @@
+{
+  "name": "content-modal",
+  "version": "1.1.0",
+  "description": "Web Component to show/hide content via a modal.",
+  "main": "./src/content-modal.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.wsgc.com/eCommerce-Bedrock/web-component-ecom-common"
+  },
+  "scripts": {
+    "lint": "eslint src",
+    "lintFix": "eslint src --fix",
+    "test": "npm run build && ./node_modules/.bin/wct --npm",
+    "prepublishOnly": "npm run lint && npm test",
+    "build": "webpack --config ./webpack.config.js",
+    "start": "webpack-dev-server --config ./webpack.config.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^6.2.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.2.1",
+    "css-loader": "^0.27.3",
+    "document-register-element": "^1.4.1",
+    "eslint": "^4.3.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "html-webpack-plugin": "^2.28.0",
+    "node-sass": "^4.5.1",
+    "postcss-loader": "^2.0.5",
+    "read-pkg-up": "^2.0.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "wct-headless": "^2.2.2",
+    "web-component-tester": "v5.0.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.4",
+    "webpack-merge": "^4.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://npmrepo-dev.wsgc.com/repository/wsgc-npm-snapshot-local/"
+  }
+}

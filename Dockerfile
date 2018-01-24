@@ -4,7 +4,6 @@ RUN apt-get update;
 
 # install Chrome
 RUN apt-get install -y curl
-
 RUN curl -sL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - ;\
     echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' >> /etc/apt/sources.list.d/google.list ;\
     echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" >> /etc/apt/sources.list.d/oracle.list ;\
@@ -15,19 +14,25 @@ RUN apt-get install -y google-chrome-stable
 
 # install Firefox 46
 RUN apt-get install -y wget tar
-RUN wget -O /usr/local/firefox-46.0.1.tar.bz2 http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/46.0.1/linux-x86_64/en-US/firefox-46.0.1.tar.bz2
-RUN tar xvjf /usr/local/firefox-46.0.1.tar.bz2 -C /usr/local
+RUN wget -O /usr/local/firefox-57.0.tar.bz2 http://ftp.mozilla.org/pub/firefox/releases/57.0/linux-x86_64/en-US/firefox-57.0.tar.bz2
+RUN tar xvjf /usr/local/firefox-57.0.tar.bz2 -C /usr/local
 RUN ln -s /usr/local/firefox/firefox /usr/bin/firefox
 
 RUN apt-get install -y xvfb
 
+
+# Install Oracle JDK
 RUN echo 'oracle-java8-installer shared/accepted-oracle-license-v1-1 boolean true' | debconf-set-selections ;\
     DEBIAN_FRONTEND=noninteractive apt-get install -y oracle-java8-installer
 
+RUN npm install -g selenium-standalone
+
+RUN selenium-standalone install
+
 WORKDIR /usr/src
 
-ADD package.json .
+# ADD . .
 
-RUN npm install -ddd
+# RUN npm install
 
-ADD . .
+# RUN ln -sf /usr/local/lib/node_modules/selenium-standalone/.selenium /usr/src/node_modules/selenium-standalone/.selenium

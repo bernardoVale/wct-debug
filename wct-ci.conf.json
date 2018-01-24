@@ -1,0 +1,26 @@
+{
+    "verbose": true,
+    "suites": ["test/component-test.html"],
+    "plugins": {
+      "local": {
+        "disabled": true
+      },
+      "headless": {
+        "skipSeleniumInstall": true,
+        "browsers": [
+          "chrome", "firefox"
+        ],
+        "browsersOptions": {
+          "chrome": [
+            "window-size=1920,1080",
+            "headless",
+            "disable-gpu",
+            "no-sandbox"
+          ],
+          "firefox": [
+            "--headless"
+          ]
+        }
+      }
+    }
+  }

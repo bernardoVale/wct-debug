@@ -1,12 +1,27 @@
 {
-  "verbose": true,
-  "suites": ["test/component-test.html"],
-  "plugins": {
-    "local": {
-      "disabled": false,
-      "browsers": [
-        "firefox", "chrome"
-      ]
+    "verbose": true,
+    "suites": ["test/component-test.html"],
+    "plugins": {
+      "local": {
+        "disabled": false,
+        "browsers": [
+          "firefox", "chrome"
+        ],
+        "browsersOptions": {
+            "chrome": [
+              "window-size=1920,1080",
+              "headless",
+              "disable-gpu",
+              "no-sandbox"
+            ],
+            "firefox": [
+              "--headless"
+            ]
+        }
+      },
+      "headless": {
+          "disabled": true
+      }
     }
   }
-}
+
